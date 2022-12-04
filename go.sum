@@ -279,6 +279,8 @@ github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7V
 github.com/julienschmidt/httprouter v1.3.0/go.mod h1:JR6WtHb+2LUe8TCKY3cZOxFyyO8IZAc4RVcycCCAKdM=
 github.com/keltia/proxy v0.9.3 h1:Cpv6VA50SXSY+JxQ6q+BHpPMNAfWGZU4Qb5kdwUR1TY=
 github.com/keltia/proxy v0.9.3/go.mod h1:fLU4DmBPG0oh0md9fWggE2oG2m7Lchv3eim+GiO3pZY=
+github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6 h1:9bEIiZu9Vonja7prDPBNMJRP9cLqVSKojqqrMhLiTeg=
+github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6/go.mod h1:zYa+dM8811qRhclezc/AKX9imyQwPjjSk2cH0xTgTag=
 github.com/kisielk/errcheck v1.2.0/go.mod h1:/BMXB+zMLi60iA8Vv6Ksmxu/1UDYcXs4uQLJ+jE2L00=
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=

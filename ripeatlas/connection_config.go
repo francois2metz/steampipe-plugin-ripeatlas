@@ -6,7 +6,7 @@ import (
 )
 
 type ripeatlasConfig struct {
-	Key   *string   `cty:"key"`
+	Key *string `cty:"key"`
 }
 
 var ConfigSchema = map[string]*schema.Attribute{

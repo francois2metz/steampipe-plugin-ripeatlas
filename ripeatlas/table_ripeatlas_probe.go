@@ -10,7 +10,16 @@ import (
 func tableRipeatlasProbe() *plugin.Table {
 	return &plugin.Table{
 		Name:        "ripeatlas_probe",
-		Description: "",
+		Description: "The list of RIPE Atlas probes.",
+		List: &plugin.ListConfig{
+			Hydrate:    listProbe,
+			KeyColumns: []*plugin.KeyColumn{
+				{
+					Name:    "country_code",
+					Require: plugin.Optional,
+				},
+			},
+		},
 		Get: &plugin.GetConfig{
 			KeyColumns: plugin.SingleColumn("id"),
 			Hydrate:    getProbe,
@@ -98,6 +107,28 @@ func tableRipeatlasProbe() *plugin.Table {
 			},
 		},
 	}
+}
+
+func listProbe(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+	client, err := connect(ctx, d)
+	if err != nil {
+		plugin.Logger(ctx).Error("ripeatlas_probe.listProbe", "connection_error", err)
+		return nil, err
+	}
+	opts := make(map[string]string)
+	quals := d.KeyColumnQuals
+	if quals["country_code"] != nil {
+		opts["country_code"] = quals["country_code"].GetStringValue()
+	}
+	result, err := client.GetProbes(opts)
+	if err != nil {
+		plugin.Logger(ctx).Error("ripeatlas_probe.listProbe", err)
+		return nil, err
+	}
+	for _, i := range result {
+		d.StreamListItem(ctx, i)
+	}
+	return nil, nil
 }
 
 func getProbe(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {

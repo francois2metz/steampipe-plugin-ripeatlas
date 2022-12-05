@@ -1,6 +1,6 @@
 module github.com/francois2metz/steampipe-plugin-ripeatlas
 
-go 1.18
+go 1.19
 
 require (
 	github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6

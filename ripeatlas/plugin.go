@@ -16,7 +16,8 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			Schema:      ConfigSchema,
 		},
 		TableMap: map[string]*plugin.Table{
-			"ripeatlas_probe": tableRipeatlasProbe(),
+			"ripeatlas_measurement": tableRipeatlasMeasurement(),
+			"ripeatlas_probe":       tableRipeatlasProbe(),
 		},
 	}
 	return p

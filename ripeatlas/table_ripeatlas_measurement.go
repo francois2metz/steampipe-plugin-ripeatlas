@@ -43,6 +43,23 @@ func tableRipeatlasMeasurement() *plugin.Table {
 				Transform:   transform.FromQual("mine"),
 			},
 			{
+				Name:        "type",
+				Type:        proto.ColumnType_STRING,
+				Description: "The type of the measurement.",
+			},
+			{
+				Name:        "status_id",
+				Type:        proto.ColumnType_INT,
+				Description: "Status ID.",
+				Transform:   transform.FromField("Status.ID"),
+			},
+			{
+				Name:        "status_name",
+				Type:        proto.ColumnType_STRING,
+				Description: "Status name.",
+				Transform:   transform.FromField("Status.Name"),
+			},
+			{
 				Name:        "af",
 				Type:        proto.ColumnType_INT,
 				Description: "IPv4 of IPv6 Address family of the measurement.",
@@ -89,6 +106,56 @@ func tableRipeatlasMeasurement() *plugin.Table {
 				Name:        "is_reachability_test",
 				Type:        proto.ColumnType_BOOL,
 				Description: "Indicates this measurement is a reachability test.",
+			},
+			{
+				Name:        "spread",
+				Type:        proto.ColumnType_INT,
+				Description: "Distribution of probes' measurements throughout the interval (default is half the interval, maximum 400 seconds).",
+			},
+			{
+				Name:        "resolve_on_probe",
+				Type:        proto.ColumnType_BOOL,
+				Description: "Indicates that a name should be resolved (using DNS) on the probe. Otherwise it will be resolved on the RIPE Atlas servers.",
+			},
+			{
+				Name:        "participant_count",
+				Type:        proto.ColumnType_INT,
+				Description: "Number of participating probes.",
+			},
+			{
+				Name:        "target_asn",
+				Type:        proto.ColumnType_INT,
+				Description: "The number of the Autonomous System the IP address of the target belongs to.",
+			},
+			{
+				Name:        "target",
+				Type:        proto.ColumnType_STRING,
+				Description: "",
+			},
+			{
+				Name:        "target_ip",
+				Type:        proto.ColumnType_STRING,
+				Description: "The IP Address of the target of the measurement.",
+			},
+			{
+				Name:        "target_prefix",
+				Type:        proto.ColumnType_STRING,
+				Description: "Enclosing prefix of the IP address of the target.",
+			},
+			{
+				Name:        "in_wifi_group",
+				Type:        proto.ColumnType_BOOL,
+				Description: "Indicates this measurement belongs to a wifi measurement group.",
+			},
+			{
+				Name:        "probes_requested",
+				Type:        proto.ColumnType_INT,
+				Description: "Number of probes requested, but not necessarily granted to this measurement.",
+			},
+			{
+				Name:        "probes_scheduled",
+				Type:        proto.ColumnType_INT,
+				Description: "Number of probes actually scheduled for this measurement.",
 			},
 		},
 	}

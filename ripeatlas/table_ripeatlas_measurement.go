@@ -67,7 +67,7 @@ func tableRipeatlasMeasurement() *plugin.Table {
 			{
 				Name:        "creation_time",
 				Type:        proto.ColumnType_TIMESTAMP,
-				Description: "The creation date and time of the measurement (Defaults to unix timestamp format).",
+				Description: "The creation date and time of the measurement.",
 				Transform:   transform.FromField("CreationTime").NullIfZero().Transform(convertTimestamp),
 			},
 			{
@@ -79,7 +79,7 @@ func tableRipeatlasMeasurement() *plugin.Table {
 			{
 				Name:        "stop_time",
 				Type:        proto.ColumnType_TIMESTAMP,
-				Description: "Actual end time of measurement (as a unix timestamp).",
+				Description: "Actual end time of measurement.",
 				Transform:   transform.FromField("StopTime").NullIfZero().Transform(convertTimestamp),
 			},
 			{

@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func convertTimestamp(ctx context.Context, input *transform.TransformData) (interface{}, error) {
@@ -168,7 +168,7 @@ func listMeasurement(ctx context.Context, d *plugin.QueryData, h *plugin.Hydrate
 		return nil, err
 	}
 	opts := make(map[string]string)
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 
 	if quals["mine"] != nil {
 		opts["mine"] = "true"
@@ -190,7 +190,7 @@ func getMeasurement(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateD
 		plugin.Logger(ctx).Error("ripeatlas_measurement.getMeasurement", "connection_error", err)
 		return nil, err
 	}
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	id := quals["id"].GetInt64Value()
 	result, err := client.GetMeasurement(int(id))
 	if err != nil {

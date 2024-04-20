@@ -3,8 +3,8 @@ package ripeatlas
 import (
 	"context"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
 func tableRipeatlasProbe() *plugin.Table {
@@ -116,7 +116,7 @@ func listProbe(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) 
 		return nil, err
 	}
 	opts := make(map[string]string)
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	if quals["country_code"] != nil {
 		opts["country_code"] = quals["country_code"].GetStringValue()
 	}
@@ -137,7 +137,7 @@ func getProbe(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (
 		plugin.Logger(ctx).Error("ripeatlas_probe.getProbe", "connection_error", err)
 		return nil, err
 	}
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	id := quals["id"].GetInt64Value()
 	result, err := client.GetProbe(int(id))
 	if err != nil {

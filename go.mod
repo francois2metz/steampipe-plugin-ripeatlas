@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6
-	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.9
+	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.13
 )
 
 require (

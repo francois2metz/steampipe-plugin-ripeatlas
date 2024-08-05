@@ -6,7 +6,7 @@ toolchain go1.21.3
 
 require (
 	github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.10.1
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.10.2
 )
 
 require (

@@ -2,7 +2,7 @@ module github.com/francois2metz/steampipe-plugin-ripeatlas
 
 go 1.21.0
 
-toolchain go1.21.3
+toolchain go1.23.0
 
 require (
 	github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6

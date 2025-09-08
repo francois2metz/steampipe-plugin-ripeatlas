@@ -3,7 +3,7 @@ module github.com/francois2metz/steampipe-plugin-ripeatlas
 go 1.24
 
 require (
-	github.com/keltia/ripe-atlas v0.0.0-20211221125000-f6eb808d5dc6
+	github.com/keltia/ripe-atlas v0.0.0-20250901142135-3a27a9a0a456
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.13.0
 )
 
